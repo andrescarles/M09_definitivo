@@ -108,6 +108,50 @@
             width: 25%;
             margin-left: 3%;
         }
+        /*PARTE GRID*/
+        
+        section:nth-child(2) h2 {
+            color: white;
+            padding: 10px;
+            text-align: center;
+            background-color: rgb(15, 15, 61);
+        }
+        
+        .menu1,
+        .menu2 {
+            margin-bottom: 2%;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+        }
+        
+        .menu2 {
+            margin-bottom: 10%;
+        }
+        
+        .menu1 div:first-child,
+        .menu2 div:first-child {
+            border: gray 2px Groove;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        h3 {
+            margin: 0;
+        }
+        
+        .contenedor_foto_3,
+        .contenedor_foto_4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .contenedor_foto_3 img,
+        .contenedor_foto_4 img {
+            width: 90%;
+            border: grey 2px Groove;
+        }
         /*PARTE FLEX*/
         
         .contenedor_fotos {
