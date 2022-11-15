@@ -204,6 +204,7 @@
         align-items: center;
         margin-right: 10px;
     }
+    /* PARTE 576px */
     
     @media (max-width: 576px) {
         /*HEADER*/
@@ -312,5 +313,109 @@
         }
         .pie>li:last-child {
             display: none;
+        }
+    }
+    /* PARTE 768PX */
+    
+    @media (min-width:576px) and (max-width:768px) {
+        /*HEADER*/
+        header {
+            height: 11vh;
+            background-color: white;
+        }
+        .cabecera>li:first-child {
+            color: black;
+            float: left;
+            line-height: 8vw;
+        }
+        .cabecera>li:nth-child(2n) {
+            color: black;
+            margin-right: 5%;
+            float: left;
+            line-height: 8vw;
+        }
+        .cabecera>li:last-child {
+            color: black;
+            float: left;
+            line-height: 8vw;
+        }
+        /*BANNER*/
+        .titulo_banner,
+        .p_banner {
+            left: 13%;
+            top: 13%;
+            font-size: 1.5rem;
+        }
+        .titulo_banner+.p_banner {
+            left: 13%;
+            top: 18%;
+            font-size: 0.9rem;
+        }
+        main {
+            width: 80%;
+        }
+        aside {
+            width: 10%;
+        }
+        .contenedor_foto_1>img,
+        .contenedor_foto_2>img {
+            width: 100%;
+            border-radius: 2%;
+        }
+        section:first-child {
+            text-align: justify;
+        }
+        /*PARTE GRID*/
+        .menu1 {
+            margin-bottom: 5%;
+        }
+        .menu1 div:first-child,
+        .menu2 div:first-child {
+            border: rgb(205, 202, 202) 2px Groove;
+            padding: 1%;
+        }
+        .contenedor_foto_3,
+        .contenedor_foto_4 {
+            position: relative;
+            grid-template-columns: 100%;
+        }
+        .contenedor_foto_3 img,
+        .contenedor_foto_4 img {
+            margin: 5% 0 10px 0;
+            width: 100%;
+        }
+        .banda {
+            position: absolute;
+            bottom: 10px;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            /* Black see-through */
+            color: #f1f1f1;
+            width: 92%;
+            transition: .5s ease;
+            opacity: 0;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+            opacity: 1;
+        }
+        /*PARTE FLEX*/
+        .contenedor_fotos {
+            justify-content: space-around;
+        }
+        .contenedor_fotos>img {
+            height: 20%;
+            width: 40%;
+        }
+        /*PARTE FOOTER*/
+        .pie {
+            height: 10vh;
+            justify-content: space-around;
+        }
+        .pie>li:last-child {
+            position: static;
+            right: auto;
+            margin-right: 5%;
         }
     }
