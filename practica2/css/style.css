@@ -118,10 +118,16 @@
     }
     
     .menu1,
+    .menu2>div {
+        z-index: 0;
+    }
+    
+    .menu1,
     .menu2 {
         margin-bottom: 2%;
         display: grid;
         grid-template-columns: 1fr 3fr;
+        z-index: 1;
     }
     
     .menu2 {

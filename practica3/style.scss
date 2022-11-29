@@ -1,0 +1,453 @@
+    /* VARIABLES */
+    
+    $fondonegro: black;
+    $flex: flex;
+    $cien: 100%;
+    $brillo: brightness(0.5);
+    /* MIXINS */
+    /*FUNCION PARA DETERMINAR WIDTH*/
+    
+    @mixin ancho($propiedad) {
+        width: $propiedad;
+    }
+    /*FUNCION PARA ASIGNAR PUNTO DE INICIO FLOAT*/
+    
+    @mixin punto($propiedad1, $propiedad2) {
+        left: $propiedad1;
+        top: $propiedad2;
+    }
+    /*EXTEND*/
+    
+    .bloque1 {
+        margin-right: 2%;
+        float: right;
+        line-height: 3vw;
+    }
+    /*GENERAL*/
+    
+    html {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+        margin: 0;
+    }
+    /*HEADER*/
+    /*IMPORT ARCHIVO: _footer.scss*/
+    
+    @import "footer";
+    .cabecera,
+    .pie {
+        list-style: none;
+        color: white;
+        height: 3vw;
+        margin: 0;
+    }
+    
+    .cabecera>li:first-child {
+        margin-right: 5%;
+        float: right;
+        line-height: 3vw;
+    }
+    
+    .cabecera>li:nth-child(2n) {
+        @extend .bloque1;
+        /*HERENCIA*/
+    }
+    
+    .cabecera>li:last-child {
+        @extend .bloque1;
+        /*HERENCIA*/
+    }
+    
+    .cabecera>li:hover {
+        text-decoration: underline;
+    }
+    /*BANNER*/
+    
+    .titulo_banner,
+    .p_banner {
+        font-weight: 100;
+        position: absolute;
+        color: white;
+        @include punto(20%, 33%);
+        /*FUNCION*/
+        font-size: 2.5rem;
+    }
+    
+    .titulo_banner+.p_banner {
+        @include punto(20%, 42%);
+        /*FUNCION*/
+        font-size: 1rem;
+    }
+    /*NESTED ACTION*/
+    
+    .banner {
+        img {
+            @include ancho($cien)/*FUNCION*/
+        }
+    }
+    
+    img {
+        object-fit: cover;
+        object-position: center center;
+    }
+    /*CONTENIDO*/
+    /*PARTE FLOAT*/
+    /*IMPORT ARCHIVO: _contenedor.scss*/
+    
+    @import "contenedor";
+    aside {
+        @include ancho(20%)/*FUNCION*/
+    }
+    
+    main {
+        @include ancho(60%)/*FUNCION*/
+    }
+    
+    section>h1 {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-size: 2rem;
+    }
+    
+    section:first-child {
+        margin-bottom: 100px;
+    }
+    
+    .contenedor_foto_1>img {
+        float: left;
+        @include ancho(25%);
+        /*FUNCION*/
+        margin-right: 3%;
+    }
+    
+    .contenedor_foto_2>img {
+        float: right;
+        @include ancho(25%);
+        /*FUNCION*/
+        margin-left: 3%;
+    }
+    /*PARTE GRID*/
+    
+    section:nth-child(2) h2 {
+        color: white;
+        padding: 10px;
+        text-align: center;
+        background-color: rgb(15, 15, 61);
+    }
+    
+    .menu1,
+    .menu2>div {
+        z-index: 0;
+    }
+    
+    .menu1,
+    .menu2 {
+        margin-bottom: 2%;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        z-index: 1;
+    }
+    
+    .menu2 {
+        margin-bottom: 10%;
+    }
+    
+    .menu1 div:first-child,
+    .menu2 div:first-child {
+        border: gray 2px Groove;
+        margin-right: 10px;
+        display: $flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    h3 {
+        margin: 0;
+    }
+    
+    .contenedor_foto_3,
+    .contenedor_foto_4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .contenedor_foto_3 img,
+    .contenedor_foto_4 img {
+        @include ancho(90%);
+        /*FUNCION*/
+        border: grey 2px Groove;
+    }
+    /*PARTE FLEX*/
+    
+    .contenedor_fotos {
+        display: $flex;
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+    }
+    
+    .contenedor_fotos>img:nth-child(1),
+    .contenedor_fotos>img:nth-child(4),
+    .contenedor_fotos>img:nth-child(5),
+    .contenedor_fotos>img:nth-child(8) {
+        filter: $brillo;
+    }
+    
+    .contenedor_fotos>img {
+        margin: 10px;
+        height: 200px;
+        width: 200px;
+    }
+    
+    .contenedor_fotos>img:hover {
+        filter: $brillo;
+        border: grey 2px Groove;
+        padding: 5px;
+    }
+    /*PARTE FOOTER*/
+    
+    .pie {
+        display: $flex;
+        align-items: center;
+    }
+    
+    .pie>li {
+        margin-right: 10px;
+    }
+    
+    .pie>li:last-child {
+        position: absolute;
+        right: 0;
+        margin-right: 20px;
+    }
+    
+    .pie>li {
+        margin-right: 10px;
+        display: $flex;
+    }
+    
+    .pie>li>img {
+        align-items: center;
+        margin-right: 10px;
+    }
+    /* PARTE 576px */
+    
+    @media (max-width: 576px) {
+        /*HEADER*/
+        header {
+            height: 8vh;
+            background-color: white;
+        }
+        .cabecera>li:first-child {
+            color: black;
+            float: left;
+            line-height: 8vw;
+        }
+        .cabecera>li:nth-child(2n) {
+            color: black;
+            margin-right: 5%;
+            float: left;
+            line-height: 8vw;
+        }
+        .cabecera>li:last-child {
+            color: black;
+            float: left;
+            line-height: 8vw;
+        }
+        /*BANNER*/
+        .titulo_banner,
+        .p_banner {
+            @include punto(13%, 13%);
+            /*FUNCION*/
+            font-size: 1.5rem;
+        }
+        .titulo_banner+.p_banner {
+            @include punto(13%, 18%);
+            /*FUNCION*/
+            font-size: 0.9rem;
+        }
+        main {
+            @include ancho(94%)/*FUNCION*/
+        }
+        aside {
+            @include ancho(3%)/*FUNCION*/
+        }
+        section>h1 {
+            @include ancho($cien);
+            /*FUNCION*/
+            text-align: center;
+        }
+        .contenedor_foto_1>img,
+        .contenedor_foto_2>img {
+            @include ancho($cien);
+            /*FUNCION*/
+            border-radius: 2%;
+        }
+        section:first-child {
+            text-align: justify;
+        }
+        /*PARTE GRID*/
+        section:nth-child(2) h2 {
+            display: none;
+        }
+        .menu1 {
+            margin-top: 10%;
+        }
+        .menu1,
+        .menu2 {
+            grid-template-columns: cien;
+        }
+        .menu1 div:first-child,
+        .menu2 div:first-child {
+            border: rgb(205, 202, 202) 2px Groove;
+            padding: 1%;
+        }
+        h3 {
+            margin: 4% 0 -3% 0;
+        }
+        .contenedor_foto_3,
+        .contenedor_foto_4 {
+            position: relative;
+            grid-template-columns: 100%;
+        }
+        .contenedor_foto_3 img,
+        .contenedor_foto_4 img {
+            margin: 5% 0 10px 0;
+            @include ancho($cien)/*FUNCION*/
+        }
+        .banda {
+            position: absolute;
+            bottom: 10px;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            /* Black see-through */
+            color: #f1f1f1;
+            @include ancho(92%);
+            /*FUNCION*/
+            transition: .5s ease;
+            opacity: 0;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+            opacity: 1;
+        }
+        /*PARTE FLEX*/
+        .contenedor_fotos>img {
+            @include ancho($cien)/*FUNCION*/
+        }
+        /*PARTE FOOTER*/
+        .pie {
+            height: 10vh;
+        }
+        .pie>li:last-child {
+            display: none;
+        }
+    }
+    /* PARTE 768PX */
+    
+    @media (min-width:576px) and (max-width:768px) {
+        /*HEADER*/
+        header {
+            height: 11vh;
+            background-color: white;
+        }
+        .cabecera>li:first-child {
+            color: black;
+            float: left;
+            line-height: 8vw;
+        }
+        .cabecera>li:nth-child(2n) {
+            color: black;
+            margin-right: 5%;
+            float: left;
+            line-height: 8vw;
+        }
+        .cabecera>li:last-child {
+            color: black;
+            float: left;
+            line-height: 8vw;
+        }
+        /*BANNER*/
+        .titulo_banner,
+        .p_banner {
+            @include punto(13%, 13%);
+            /*FUNCION*/
+            font-size: 1.5rem;
+        }
+        .titulo_banner+.p_banner {
+            @include punto(13%, 18%);
+            /*FUNCION*/
+            font-size: 0.9rem;
+        }
+        main {
+            @include ancho(80%)/*FUNCION*/
+        }
+        aside {
+            @include ancho(10%)
+        }
+        .contenedor_foto_1>img,
+        .contenedor_foto_2>img {
+            @include ancho($cien);
+            /*FUNCION*/
+            border-radius: 2%;
+        }
+        section:first-child {
+            text-align: justify;
+        }
+        /*PARTE GRID*/
+        .menu1 {
+            margin-bottom: 5%;
+        }
+        .menu1 div:first-child,
+        .menu2 div:first-child {
+            border: rgb(205, 202, 202) 2px Groove;
+            padding: 1%;
+        }
+        .contenedor_foto_3,
+        .contenedor_foto_4 {
+            position: relative;
+            grid-template-columns: 100%;
+        }
+        .contenedor_foto_3 img,
+        .contenedor_foto_4 img {
+            margin: 5% 0 10px 0;
+            @include ancho($cien)/*FUNCION*/
+        }
+        .banda {
+            position: absolute;
+            bottom: 10px;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            /* Black see-through */
+            color: #f1f1f1;
+            @include ancho(92%);
+            /*FUNCION*/
+            transition: .5s ease;
+            opacity: 0;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+            opacity: 1;
+        }
+        /*PARTE FLEX*/
+        .contenedor_fotos {
+            justify-content: space-around;
+        }
+        .contenedor_fotos>img {
+            height: 20%;
+            @include ancho(40%)/*FUNCION*/
+        }
+        /*PARTE FOOTER*/
+        .pie {
+            height: 10vh;
+            justify-content: space-around;
+        }
+        .pie>li:last-child {
+            position: static;
+            right: auto;
+            margin-right: 5%;
+        }
+    }
